@@ -1,0 +1,287 @@
+/* =========================================
+   1. VARIABLES DE COLOR (PALETA CLINICA SUCRE)
+   ========================================= */
+:root {
+    --header-gradient: linear-gradient(90deg, #00bfa5 0%, #0091ea 100%); /* Turquesa a Azul */
+    --primary-btn: #00c853;    /* Verde esmeralda */
+    --bg-page: #f4f7f6;        /* Fondo gris clínico suave */
+    --text-main: #2c3e50;
+    --white: #ffffff;
+    --shadow: 0 4px 15px rgba(0,0,0,0.1);
+    --danger: #ff5252;
+    --accent: #00bfa5;         /* Color Menta */
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    padding-bottom: 100px; /* Espacio para el menú flotante */
+}
+
+.glass-header {
+    background: var(--header-gradient);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.badge {
+    background: rgba(255, 255, 255, 0.2);
+    font-size: 0.5em;
+    padding: 4px 12px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    margin-left: 10px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+.search-bar {
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--bg-page);
+}
+.search-wrapper {
+    width: 100%;
+    max-width: 1100px;
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 50px;
+    padding: 5px 25px;
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+    transition: 0.3s;
+}
+
+.search-wrapper:focus-within {
+    border-color: var(--accent);
+}
+
+.search-icon {
+    color: var(--accent);
+    font-size: 1.2rem;
+    margin-right: 10px;
+}
+
+#inputBuscar {
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    font-size: 16px;
+    outline: none;
+    background: transparent;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.layout-wrapper {
+    display: grid;
+    grid-template-columns: 350px 1fr;
+    gap: 25px;
+    padding-top: 10px;
+}
+
+@media (max-width: 850px) {
+    .layout-wrapper { grid-template-columns: 1fr; }
+}
+
+.card-form {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+.card-form h3 {
+    color: #0077c2;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #f0f4f8;
+    padding-bottom: 10px;
+}
+
+.field { margin-bottom: 15px; }
+
+.field label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #7f8c8d;
+    display: block;
+    margin-bottom: 5px;
+    text-transform: uppercase;
+}
+
+input, textarea, select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #edf2f7;
+    border-radius: 12px;
+    background: #f8fafc;
+    font-size: 14px;
+    outline: none;
+}
+
+input:focus { border-color: var(--accent); background: white; }
+
+.field-group { display: flex; gap: 10px; }
+
+.btn-main {
+    background: var(--primary-btn);
+    color: white;
+    border: none;
+    padding: 15px;
+    width: 100%;
+    border-radius: 15px;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 200, 83, 0.2);
+}
+
+.btn-main:active { transform: scale(0.98); }
+.estante-title {
+    border-left: 8px solid var(--accent);
+    padding-left: 15px;
+    margin: 35px 0 20px 0;
+    color: #34495e;
+    font-size: 1.4rem;
+    background: #e0f2f1;
+    padding: 10px 15px;
+    border-radius: 0 10px 10px 0;
+}
+
+.med-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 20px;
+}
+
+.med-card {
+    background: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    border-top: 5px solid var(--accent);
+    transition: 0.3s;
+}
+
+.med-card:hover { transform: translateY(-5px); }
+
+.tag-categoria {
+    background: #e3f2fd;
+    color: #1976d2;
+    font-size: 0.7rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 6px;
+    display: inline-block;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.med-name { font-size: 1.2rem; font-weight: bold; color: #2c3e50; }
+
+.med-info-box {
+    background: #f9fbff;
+    padding: 15px;
+    border-radius: 15px;
+    font-size: 0.85rem;
+    margin: 12px 0;
+}
+
+.warning-text {
+    background: #fff5f5;
+    color: #c0392b;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+    border-left: 4px solid var(--danger);
+    font-size: 0.8rem;
+}
+
+.med-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #eee;
+    padding-top: 12px;
+    margin-top: 10px;
+}
+
+.precio {
+    color: var(--primary-btn);
+    font-weight: 800;
+    font-size: 1.2rem;
+}
+
+.floating-menu {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 12px 20px;
+    border-radius: 50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+}
+
+.btn-float {
+    border: none;
+    background: var(--accent);
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-float span { font-size: 1.2rem; }
+.btn-float small { font-size: 0.5rem; font-weight: bold; text-transform: uppercase; margin-top: 2px; }
+
+.btn-float:hover { transform: scale(1.1); }
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.5);
+    backdrop-filter: blur(5px);
+    z-index: 3000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 30px;
+    width: 90%;
+    max-width: 400px;
+}

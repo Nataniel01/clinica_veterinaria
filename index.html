@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Inventario Vet | Clinica Sucre</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="glass-header">
+        <h1>🐾 Clinica Sucre <span class="badge">Control Médico</span></h1>
+    </header>
+
+    <main class="container">
+        <div class="search-bar">
+            <div class="search-wrapper">
+                <span class="search-icon">🔍</span>
+                <input type="text" id="inputBuscar" placeholder="Buscar por nombre, especie o principio activo..." onkeyup="buscarMedicamento()">
+            </div>
+        </div>
+
+        <div class="layout-wrapper">
+            
+            <aside class="sidebar">
+                <section class="card-form">
+                    <h3>➕ Registro de Fármaco</h3>
+                    
+                    <div class="field">
+                        <label>Nombre Comercial</label>
+                        <input type="text" id="nombre" placeholder="Nombre del producto">
+                    </div>
+
+                    <div class="field">
+                        <label>Principio Activo / Composición</label>
+                        <input type="text" id="principio" placeholder="Ej: Ivermectina">
+                    </div>
+
+                    <div class="field-group">
+                        <div class="field">
+                            <label>Categoría</label>
+                            <input type="text" id="categoria" placeholder="Ej: Antibiótico">
+                        </div>
+                        <div class="field">
+                            <label>Estante (Ubicación)</label>
+                            <select id="selectEstante"></select>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Especies Destino</label>
+                        <input type="text" id="especie" placeholder="Ej: Caninos, Bovinos">
+                    </div>
+
+                    <div class="field">
+                        <label>Indicaciones</label>
+                        <textarea id="indicaciones" placeholder="¿Para qué se usa?"></textarea>
+                    </div>
+
+                    <div class="field-group">
+                        <div class="field">
+                            <label>Dosis</label>
+                            <input type="text" id="dosis" placeholder="Dosis">
+                        </div>
+                        <div class="field">
+                            <label>Vía</label>
+                            <input type="text" id="via" placeholder="Vía adm.">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>🚫 Contraindicaciones</label>
+                        <textarea id="contraindicaciones" placeholder="Efectos adversos o riesgos"></textarea>
+                    </div>
+
+                    <div class="field-group">
+                        <div class="field">
+                            <label>⏳ Tiempo de Retiro</label>
+                            <input type="text" id="retiro" placeholder="Ej: 30 días">
+                        </div>
+                        <div class="field">
+                            <label>📝 Observaciones</label>
+                            <input type="text" id="observaciones" placeholder="Notas extras">
+                        </div>
+                    </div>
+
+                    <div class="field-group">
+                        <div class="field">
+                            <label>Stock</label>
+                            <input type="number" id="cantidad" placeholder="0">
+                        </div>
+                        <div class="field">
+                            <label>Precio (Bs.)</label>
+                            <input type="number" id="precio" placeholder="0.00">
+                        </div>
+                    </div>
+
+                    <button onclick="agregarMedicamento()" class="btn-main">Guardar Fármaco</button>
+                </section>
+
+                <section class="card-form">
+                    <h3>📁 Configurar Estantes</h3>
+                    <div class="field">
+                        <label>Nuevo Estante</label>
+                        <input type="text" id="nombreEstante" placeholder="Nombre (Ej: 1 <1)">
+                        <button onclick="crearEstante()" class="btn-sec" style="margin-top:10px; width:100%;">Crear Nuevo</button>
+                    </div>
+                    <hr class="separator" style="margin: 15px 0;">
+                    <div class="field">
+                        <label>Borrar Estante</label>
+                        <select id="selectBorrarEstante"></select>
+                        <button onclick="borrarEstante()" class="btn-danger-outline" style="margin-top:10px; width:100%;">Borrar Estante</button>
+                    </div>
+                </section>
+            </aside>
+
+            <div class="content">
+                <div id="contenedorEstantes"></div>
+            </div>
+
+        </div>
+    </main>
+
+    <div id="modalMover" class="modal">
+        <div class="modal-content">
+            <h4>📦 Reubicar Medicamento</h4>
+            <p id="nombreMedAMover" style="color: #00897b; font-weight: bold; margin-bottom: 15px;"></p>
+            
+            <div class="field">
+                <label>Nuevo Estante:</label>
+                <select id="selectNuevoEstante"></select>
+            </div>
+            
+            <div style="display: flex; gap: 10px; margin-top: 20px;">
+                <button onclick="confirmarMovimiento()" class="btn-main" style="flex: 1;">Confirmar</button>
+                <button onclick="cerrarModal()" class="btn-danger-outline" style="flex: 1;">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="floatingMenu" class="floating-menu">
+        <button onclick="generarReporte()" class="btn-float">
+            <span>📋</span> <small>Reporte</small>
+        </button>
+        <button onclick="exportarDatos()" class="btn-float" style="background: #11cbec;">
+            <span>💾</span> <small>Backup</small>
+        </button>
+        <button onclick="importarDatos()" class="btn-float" style="background: #78909c;">
+            <span>📥</span> <small>Importar</small>
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
